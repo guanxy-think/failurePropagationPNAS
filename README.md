@@ -4,3 +4,6 @@ This script generates the null models used by the inference model. Lines 7 to 49
 
 ## F-W.R
 This script runs a traffic assignment model in the Sioux-Falls network to obtain the time when each road segment gets congested (i.e., the failure time). The inputs include the Sioux-Falls network topology and OD demand, both in the folder "benchmark model".
+
+## backward inference.R
+This script includes the functions required to run the MLE-based propagation inference model.
