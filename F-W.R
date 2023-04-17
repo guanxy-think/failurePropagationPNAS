@@ -214,8 +214,8 @@ linkSetToPath <- function(OD,pathSet) {
 }
 
 
-BPR_variables <- read.csv("C:/Users/Xiangyang/Google Drive/dissertation/simulation paper/benchmark model/SiouxFallsDataBPR.csv",header=T,colClasses = c("character",rep(NA,5)))
-demand <- read.csv("C:/Users/Xiangyang/Google Drive/dissertation/simulation paper/benchmark model/SiouxFallsDataDemand.csv",header=T)
+BPR_variables <- read.csv("/benchmark model/SiouxFallsDataBPR.csv",header=T,colClasses = c("character",rep(NA,5)))
+demand <- read.csv("/benchmark model/SiouxFallsDataDemand.csv",header=T)
 demand <- as.matrix(unname(demand[,-1]))
 BPR_variables$Link_from_to <- unname(sapply(BPR_variables$Link_from_to,sub,pattern="\\.",replacement=','))
 ##for each rerun, the following 3 lines need to be run
@@ -353,8 +353,8 @@ propagation
 for (aLink in names(propagation)) {
   propagation[[aLink]] <- unique(propagation[[aLink]])
 }
-write.csv(failure_time,"C:/Users/Xiangyang/Google Drive/dissertation/simulation paper/benchmark model/failure_time.csv")
-write.csv(failed_links,"C:/Users/Xiangyang/Google Drive/dissertation/simulation paper/benchmark model/failed_links.csv")
+write.csv(failure_time,"/benchmark model/failure_time.csv")
+write.csv(failed_links,"/benchmark model/failed_links.csv")
 propagation_matrix <- matrix(0,76,76)
 colnames(propagation_matrix) <- BPR_variables$Link_from_to
 rownames(propagation_matrix) <- BPR_variables$Link_from_to
@@ -363,7 +363,7 @@ for (aLink in names(propagation)) {
     propagation_matrix[aLink,anotherLink] <- 1
   }
 }
-write.csv(propagation_matrix,"C:/Users/Xiangyang/Google Drive/dissertation/simulation paper/benchmark model/propagation_matrix.csv")
+write.csv(propagation_matrix,"/benchmark model/propagation_matrix.csv")
 
 
 
